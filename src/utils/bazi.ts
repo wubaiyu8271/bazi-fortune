@@ -228,7 +228,7 @@ function calculateWuxing(year: string, month: string, day: string, hour: string)
 /**
  * 生成性格描述
  */
-function generatePersonality(wuxing: WuxingResult, dayPillar: string): string {
+function generatePersonality(_wuxing: WuxingResult, dayPillar: string): string {
   const personalities: Record<string, string> = {
     '金': '刚毅果断，重情重义，有领导才能',
     '木': '仁慈宽厚，富有创造力，善于规划',

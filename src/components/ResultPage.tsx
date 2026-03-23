@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { UserInfo, FortuneResult } from '../types';
 import { PaymentModal } from './PaymentModal';
 import { WechatGuide } from './WechatGuide';
-import { ChevronLeft, Lock, Users, Heart, Baby } from 'lucide-react';
+import { ChevronLeft, Lock, Users } from 'lucide-react';
 import { inferGuoSanGuan, GuoSanGuanResult, InferResult } from '../utils/mangpai-infer';
 
 // 总结函数：将推断结果汇总为一句话

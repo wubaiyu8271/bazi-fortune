@@ -29,9 +29,9 @@ export interface GuoSanGuanResult {
   children: InferResult[];
 }
 
-// 天干地支对应表
-const TIAN_GAN = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
-const DI_ZHI = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+// 天干地支对应表（保留供后续使用）
+const _TIAN_GAN = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+const _DI_ZHI = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
 
 // 五行对应
 const GAN_WUXING: Record<string, string> = {
@@ -415,8 +415,8 @@ function countWuxingInBazi(bazi: BaziData): Record<string, number> {
 function inferSiblings(bazi: BaziData): InferResult[] {
   const results: InferResult[] = [];
   const dayGan = getDayGan(bazi);
-  const dayPillar = parsePillar(bazi.dayPillar);
-  const timePillar = parsePillar(bazi.timePillar);
+  // const _dayPillar = parsePillar(bazi.dayPillar);
+  // const _timePillar = parsePillar(bazi.timePillar);
   
   // 判断日主旺衰（简化版）
   const isDayGanStrong = isDayGanStrongSimplified(bazi);

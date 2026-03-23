@@ -38,8 +38,8 @@ const TaiChiIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
-// 云纹装饰
-const CloudIcon = ({ size = 24 }: { size?: number }) => (
+// 云纹装饰（保留备用）
+const _CloudIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 100 60" className="mx-auto">
     <path 
       d="M10 40 Q20 20 40 30 Q50 10 70 25 Q90 15 95 35 Q100 55 80 50 L20 50 Q0 50 10 40" 
@@ -113,7 +113,7 @@ const painPoints = [
 export function HomePage({ onStart }: HomePageProps) {
   const [showBottomBtn, setShowBottomBtn] = useState(true);
 
-  const scrollToForm = () => {
+  const _scrollToForm = () => {
     const formSection = document.getElementById('form-section');
     formSection?.scrollIntoView({ behavior: 'smooth' });
   };

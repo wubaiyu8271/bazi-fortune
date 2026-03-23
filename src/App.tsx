@@ -47,7 +47,7 @@ function App() {
   const [pageState, setPageState] = useState<PageState>('home');
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [fortuneResult, setFortuneResult] = useState<FortuneResult | null>(null);
-  const [isPaid, setIsPaid] = useState(false);
+  const [_isPaid, setIsPaid] = useState(false);
   const [orderId, setOrderId] = useState('');
 
   const handleStart = () => {

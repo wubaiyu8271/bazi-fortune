@@ -117,7 +117,7 @@ const lackingEffects: Record<string, { effect: string; advice: string; detail: s
 };
 
 // 生成详细的性格分析
-function generatePersonalityDetail(gan: string, _lacking: string, isStrong: boolean): string {
+function generatePersonalityDetail(gan: string, lacking: string, isStrong: boolean): string {
   const personality = ganPersonalities[gan];
   const lackEffect = lackingEffects[lacking];
   const strengthText = isStrong ? '身旺' : '身弱';
@@ -196,7 +196,7 @@ ${lackEffect.advice}。此外，建议您：
 }
 
 // 生成详细的事业分析
-function generateCareerDetail(gan: string, _lacking: string, isStrong: boolean): string {
+function generateCareerDetail(gan: string, lacking: string, isStrong: boolean): string {
   const careerPaths: Record<string, string[]> = {
     '甲': ['企业管理', '政府公务', '教育培训', '法律法务', '建筑房地产', '林业园艺'],
     '乙': ['艺术设计', '文化传媒', '教育培训', '咨询服务', '园林绿化', '纺织服装'],
@@ -350,7 +350,7 @@ ${isStrong ? '身旺之人婚后事业运更旺，但需要注意平衡家庭和
 }
 
 // 生成详细的财运分析
-function generateWealthDetail(gan: string, _lacking: string, isStrong: boolean): string {
+function generateWealthDetail(gan: string, lacking: string, isStrong: boolean): string {
   const wealthTraits: Record<string, string> = {
     '甲': '您有赚钱的头脑，善于发现商机。财运较为波动，大起大落，需要学会守财。',
     '乙': '您的财运较为平稳，不求大富大贵，但求衣食无忧。适合稳健理财，不宜冒险。',
@@ -423,7 +423,7 @@ ${gan === '丙' || gan === '丁' ? '• 比肩劫财之年，财运有竞争，�
 }
 
 // 生成详细的健康分析
-function generateHealthDetail(gan: string, _lacking: string, isStrong: boolean): string {
+function generateHealthDetail(gan: string, lacking: string, isStrong: boolean): string {
   const organMap: Record<string, { organ: string; system: string; advice: string }> = {
     '甲': { organ: '胆', system: '肝胆系统', advice: '注意保护肝脏，避免熬夜，少喝酒' },
     '乙': { organ: '肝', system: '肝胆系统', advice: '注意情绪管理，避免生气伤肝' },
@@ -479,7 +479,7 @@ ${gan === '甲' || gan === '乙' ? '• 肝胆疾病：肝炎、胆囊炎、胆�
 }
 
 // 生成详细的流年分析
-function generateLiunianDetail(gan: string, _lacking: string, isStrong: boolean): string {
+function generateLiunianDetail(gan: string, lacking: string, isStrong: boolean): string {
   // 流年年份定义
   const _year2026 = '丙午';
   const _year2027 = '丁未';

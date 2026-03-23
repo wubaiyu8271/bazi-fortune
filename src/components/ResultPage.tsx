@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { UserInfo, FortuneResult } from '../types';
 import { PaymentModal } from './PaymentModal';
 import { WechatGuide } from './WechatGuide';
-import { ChevronLeft, Lock, Users } from 'lucide-react';
-import { inferGuoSanGuan, GuoSanGuanResult, InferResult } from '../utils/mangpai-infer';
+import { ChevronLeft, Lock } from 'lucide-react';
+import { inferGuoSanGuan, InferResult } from '../utils/mangpai-infer';
 
 // 总结函数：将推断结果汇总为一句话
 function summarizeParents(results: InferResult[]): string {
@@ -345,7 +345,7 @@ export function ResultPage({ userInfo, result, onBack, onPaymentSuccess }: Resul
               { label: '火', value: result.wuxing.fire },
               { label: '土', value: result.wuxing.earth },
             ].map((wx) => {
-              const style = getWuxingStyle(wx.label);
+              const _style = getWuxingStyle(wx.label);
               return (
                 <div key={wx.label} className="flex items-center gap-3">
                   <span 

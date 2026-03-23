@@ -11,11 +11,11 @@ interface PaymentModalProps {
   onPaymentSuccess: () => void;
 }
 
-function PayPalCheckout({ userInfo, result, onSuccess, onClose }: {
+function PayPalCheckout({ userInfo, result, onSuccess, _onClose }: {
   userInfo: UserInfo;
   result: FortuneResult;
   onSuccess: () => void;
-  onClose: () => void;
+  _onClose: () => void;
 }) {
   const [{ isPending, isRejected, isResolved }] = usePayPalScriptReducer();
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +29,7 @@ function PayPalCheckout({ userInfo, result, onSuccess, onClose }: {
   }, [isPending, isRejected, isResolved]);
 
   // 使用PayPal SDK直接创建订单（不需要后端服务器）
-  const createOrder = (data: any, actions: any) => {
+  const createOrder = (_data: any, actions: any) => {
     console.log('开始创建PayPal订单...');
     return actions.order.create({
       purchase_units: [{
@@ -98,7 +98,7 @@ function PayPalCheckout({ userInfo, result, onSuccess, onClose }: {
             console.error('PayPal错误:', err);
             setError('支付初始化失败，请重试');
           }}
-          onInit={(data, actions) => {
+          onInit={(_data, _actions) => {
             console.log('PayPal按钮初始化完成');
           }}
           onClick={() => {
@@ -166,19 +166,19 @@ export function PaymentModal({ userInfo, result, onClose, onPaymentSuccess }: Pa
   };
 
   // 使用环境变量或默认的Client ID
-  const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID || 'ASxlnI4dqQ78Lo8x5BnpEAFWomKUsMNDkzOAM0PMKR7IWT7w4gAh_ifuUE2tn7cUun3-Tam8oIRod8n0';
+  const paypalClientId = (import.meta as any).env?.VITE_PAYPAL_CLIENT_ID || 'ASxlnI4dqQ78Lo8x5BnpEAFWomKUsMNDkzOAM0PMKR7IWT7w4gAh_ifuUE2tn7cUun3-Tam8oIRod8n0';
   
   console.log('PayPal Client ID:', paypalClientId?.substring(0, 10) + '...');
 
   return (
     <PayPalScriptProvider 
       options={{
-        'client-id': paypalClientId,
+        clientId: paypalClientId,
         currency: 'USD',
         intent: 'capture',
         'enable-funding': 'paypal',
         'disable-funding': 'card,credit,paylater',
-      }}
+      } as any}
     >
       <AnimatePresence>
         <motion.div

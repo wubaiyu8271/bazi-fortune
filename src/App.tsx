@@ -11,7 +11,7 @@ import { calculateBazi } from './utils/bazi';
 import { getFortuneTemplate, isStrongBody } from './utils/fortuneTemplates';
 
 // 模拟AI生成命理解读
-async function generateFortuneResult(userInfo: UserInfo, bazi: ReturnType<typeof calculateBazi>): Promise<FortuneResult> {
+async function generateFortuneResult(_userInfo: UserInfo, bazi: ReturnType<typeof calculateBazi>): Promise<FortuneResult> {
   // 获取模板数据
   const dayGan = bazi.dayPillar[0] as '甲' | '乙' | '丙' | '丁' | '戊' | '己' | '庚' | '辛' | '壬' | '癸';
   const isStrong = isStrongBody(bazi.wuxing, dayGan);

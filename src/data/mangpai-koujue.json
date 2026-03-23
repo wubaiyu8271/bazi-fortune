@@ -1,0 +1,457 @@
+{
+  "name": "盲派命理过三关口诀库",
+  "version": "1.0.0",
+  "description": "盲派八字命理过三关（父母关、兄弟关、子女关）口诀及推断规则",
+  "source": "整理自公开命理文献",
+  "categories": {
+    "parents": {
+      "name": "父母关",
+      "description": "推断父母情况、寿夭、家境、离异等",
+      "rules": [
+        {
+          "id": "parents_01",
+          "name": "父母双全",
+          "koujue": "印绶无损父母全，十岁内外无祸延，柱中寥莪鳃麻事，金水失令火土年。",
+          "condition": {
+            "description": "印星（正印、偏印）无损，无冲克",
+            "indicators": ["印星无损", "无冲克", "年柱无刑冲"]
+          },
+          "result": {
+            "type": "父母双全",
+            "detail": "父母均健在，家庭和睦",
+            "confidence": "高"
+          },
+          "priority": 1
+        },
+        {
+          "id": "parents_02",
+          "name": "父母双全（中年版）",
+          "koujue": "印绶无伤父母全，三十上下无祸延，四柱披麻在何地，水火济济妨害年。",
+          "condition": {
+            "description": "印星无伤，30岁前无灾祸",
+            "indicators": ["印星无伤", "30岁前无大灾"]
+          },
+          "result": {
+            "type": "父母双全",
+            "detail": "父母均健在，至少到30岁",
+            "confidence": "高"
+          },
+          "priority": 1
+        },
+        {
+          "id": "parents_03",
+          "name": "父母双全（晚年版）",
+          "koujue": "印绶无损财无劫，五十父母必上仙。",
+          "condition": {
+            "description": "印星无损，财星无劫夺",
+            "indicators": ["印星无损", "财星无劫"]
+          },
+          "result": {
+            "type": "父母双全",
+            "detail": "父母至少活到50岁以上",
+            "confidence": "中"
+          },
+          "priority": 1
+        },
+        {
+          "id": "parents_04",
+          "name": "克父（比劫重重）",
+          "koujue": "比劫重重虽克父，不见偏财命也固。岁运若逢偏财来，父死非命无救助。",
+          "condition": {
+            "description": "比劫重重克父，但无偏财则暂时无碍",
+            "indicators": ["比劫数量>=3", "偏财弱或不见"]
+          },
+          "result": {
+            "type": "克父信息",
+            "detail": "命中有克父信息，需注意父亲健康，岁运逢偏财时尤甚",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "parents_05",
+          "name": "父早亡（偏财入墓逢冲）",
+          "koujue": "偏财入墓又逢冲，岁运逢墓父寿终。天克地冲见偏财，父亡之期定会来。",
+          "condition": {
+            "description": "偏财入墓库且被冲克",
+            "indicators": ["偏财入墓", "墓库逢冲", "天克地冲"]
+          },
+          "result": {
+            "type": "父早亡或缘薄",
+            "detail": "父亲可能早逝或与父亲缘分薄",
+            "confidence": "高"
+          },
+          "priority": 2
+        },
+        {
+          "id": "parents_06",
+          "name": "父早亡（比劫克父）",
+          "koujue": "比劫叠叠父难安，偏财隐遁命自宽。岁运偏财忽现身，严亲驾鹤赴西天。",
+          "condition": {
+            "description": "比劫叠叠克父，偏财藏而不透",
+            "indicators": ["比劫叠叠", "偏财藏干不透"]
+          },
+          "result": {
+            "type": "父有灾",
+            "detail": "父亲健康需关注，岁运引动时可能有灾",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "parents_07",
+          "name": "父母离异（年月相冲）",
+          "koujue": "年月相冲父母离，幼年父母早分离。",
+          "condition": {
+            "description": "年柱与月柱天克地冲",
+            "indicators": ["年月相冲", "年月天克地冲"]
+          },
+          "result": {
+            "type": "父母离异",
+            "detail": "父母可能离异或早年分离（10岁前）",
+            "confidence": "高"
+          },
+          "priority": 2
+        },
+        {
+          "id": "parents_08",
+          "name": "克母（财多坏印）",
+          "koujue": "财多坏印母不安，印绶被克母有灾。",
+          "condition": {
+            "description": "财星过多克制印星",
+            "indicators": ["财星多", "印星弱", "财克印"]
+          },
+          "result": {
+            "type": "克母信息",
+            "detail": "母亲健康需注意",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "parents_09",
+          "name": "家境出身（年柱财官）",
+          "koujue": "年上财官出身好，祖业丰厚家道昌。",
+          "condition": {
+            "description": "年柱有财官且旺相",
+            "indicators": ["年柱有财官", "财官旺相"]
+          },
+          "result": {
+            "type": "家境良好",
+            "detail": "出身家境较好，祖业丰厚",
+            "confidence": "中"
+          },
+          "priority": 3
+        },
+        {
+          "id": "parents_10",
+          "name": "家境贫寒（年柱比劫）",
+          "koujue": "年上比劫出身贫，祖业凋零家道寒。",
+          "condition": {
+            "description": "年柱比劫重重",
+            "indicators": ["年柱比劫", "比劫重重"]
+          },
+          "result": {
+            "type": "家境贫寒",
+            "detail": "出身家境一般或贫寒",
+            "confidence": "中"
+          },
+          "priority": 3
+        }
+      ]
+    },
+    "siblings": {
+      "name": "兄弟关",
+      "description": "推断兄弟姐妹数量、排行、养子信息等",
+      "rules": [
+        {
+          "id": "siblings_01",
+          "name": "兄弟数量（身旺官杀论）",
+          "koujue": "兄弟数目秉天地，先观自身旺衰基，身旺官杀论手足，身衰比劫印枭齐。",
+          "condition": {
+            "description": "身旺以官杀为兄弟姐妹，身衰以比劫印枭为兄弟姐妹",
+            "indicators": ["身旺", "官杀数量"]
+          },
+          "result": {
+            "type": "兄弟数量",
+            "detail": "身旺者，官杀数量即为兄弟姐妹数",
+            "confidence": "中"
+          },
+          "priority": 1
+        },
+        {
+          "id": "siblings_02",
+          "name": "兄弟数量（身衰比劫论）",
+          "koujue": "身衰比劫印枭齐，数目不投君莫急，相合五行未算里。",
+          "condition": {
+            "description": "身衰以比劫印枭为兄弟姐妹",
+            "indicators": ["身衰", "比劫数量", "印枭数量"]
+          },
+          "result": {
+            "type": "兄弟数量",
+            "detail": "身衰者，比劫印枭数量即为兄弟姐妹数",
+            "confidence": "中"
+          },
+          "priority": 1
+        },
+        {
+          "id": "siblings_03",
+          "name": "兄弟数量（日干五行总数）",
+          "koujue": "日干、比、劫、刃、禄、支藏日干五行、合出的日干五行、会出的日干五行、暗合出的日干五行、暗会出的日干五行之总数。",
+          "condition": {
+            "description": "统计日干五行相关总数",
+            "indicators": ["日干", "比肩", "劫财", "禄神", "支藏干", "合会五行"]
+          },
+          "result": {
+            "type": "兄弟数量",
+            "detail": "统计所有与日干五行相同或相生的干支数量",
+            "confidence": "中"
+          },
+          "priority": 1
+        },
+        {
+          "id": "siblings_04",
+          "name": "排行老大",
+          "koujue": "甲寅丙午不见劫，辛亥壬子日时现，不是独子是老大。时上若是逢正财，必是老大当头坐。",
+          "condition": {
+            "description": "特定日柱或时柱特征",
+            "indicators": ["日柱甲寅丙午无劫财", "时柱辛亥壬子", "时干正财"]
+          },
+          "result": {
+            "type": "排行老大",
+            "detail": "在家中排行老大或独子",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "siblings_05",
+          "name": "排行老小",
+          "koujue": "时落己丑是伤官，直断三四是老小。",
+          "condition": {
+            "description": "时柱己丑或伤官坐时",
+            "indicators": ["时柱己丑", "时干伤官"]
+          },
+          "result": {
+            "type": "排行老小",
+            "detail": "在家中排行老小",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "siblings_06",
+          "name": "兄弟有损",
+          "koujue": "兄弟过三死一个，两个还需转角生。",
+          "condition": {
+            "description": "兄弟多但有损",
+            "indicators": ["比劫多", "比劫受克"]
+          },
+          "result": {
+            "type": "兄弟有损",
+            "detail": "有兄弟但可能有夭折或过继",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "siblings_07",
+          "name": "独子/独女",
+          "koujue": "比劫不见手足单，独子独女命中现。",
+          "condition": {
+            "description": "八字无比劫",
+            "indicators": ["无比劫", "无比肩劫财"]
+          },
+          "result": {
+            "type": "独子独女",
+            "detail": "命中独子或独女",
+            "confidence": "高"
+          },
+          "priority": 2
+        },
+        {
+          "id": "siblings_08",
+          "name": "养子信息",
+          "koujue": "年月相冲或相合，养子信息命中藏。",
+          "condition": {
+            "description": "年月柱特殊关系",
+            "indicators": ["年月相冲", "年月相合特殊"]
+          },
+          "result": {
+            "type": "养子信息",
+            "detail": "可能有养子或过继信息",
+            "confidence": "低"
+          },
+          "priority": 3
+        }
+      ]
+    },
+    "children": {
+      "name": "子女关",
+      "description": "推断子女数量、头胎性别、子女健康等",
+      "rules": [
+        {
+          "id": "children_01",
+          "name": "男命看子女（有财星）",
+          "koujue": "男命：有财星则以七杀为儿正官为女，无财星则以食神为儿伤官为女。",
+          "condition": {
+            "description": "男命有财星时",
+            "indicators": ["男命", "财星透出"]
+          },
+          "result": {
+            "type": "子女星定位",
+            "detail": "七杀为儿子，正官为女儿",
+            "confidence": "高"
+          },
+          "priority": 1
+        },
+        {
+          "id": "children_02",
+          "name": "男命看子女（无财星）",
+          "koujue": "无财星则以食神为儿伤官为女，无官杀食伤则以时柱论之。",
+          "condition": {
+            "description": "男命无财星时",
+            "indicators": ["男命", "财星不见"]
+          },
+          "result": {
+            "type": "子女星定位",
+            "detail": "食神为儿子，伤官为女儿",
+            "confidence": "高"
+          },
+          "priority": 1
+        },
+        {
+          "id": "children_03",
+          "name": "女命看子女",
+          "koujue": "女命：以食神为女伤官为儿，或以时柱论之。",
+          "condition": {
+            "description": "女命",
+            "indicators": ["女命"]
+          },
+          "result": {
+            "type": "子女星定位",
+            "detail": "食神为女儿，伤官为儿子",
+            "confidence": "高"
+          },
+          "priority": 1
+        },
+        {
+          "id": "children_04",
+          "name": "头胎性别（时柱阴阳）",
+          "koujue": "时柱两阳则生女，时柱两阴则生男，男不透印伤是条件。男女难辨男看支，一男一女女看干。",
+          "condition": {
+            "description": "看时柱干支阴阳",
+            "indicators": ["时干阴阳", "时支阴阳"]
+          },
+          "result": {
+            "type": "头胎性别",
+            "detail": "时柱两阳生女，两阴生男",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "children_05",
+          "name": "头胎性别（子女星顺序）",
+          "koujue": "以年月日时为序，以第一个出现的子女星为头胎性别，男杀官，女伤食，同柱以干为主。",
+          "condition": {
+            "description": "按年月日时顺序找第一个子女星",
+            "indicators": ["官杀出现顺序", "食伤出现顺序"]
+          },
+          "result": {
+            "type": "头胎性别",
+            "detail": "第一个出现的子女星决定头胎性别",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "children_06",
+          "name": "子女数量（官杀食伤数）",
+          "koujue": "时上七煞一位真，日旺合刃富贵人。时煞不怕冲与合，制煞太过反伤身。",
+          "condition": {
+            "description": "看时柱及官杀食伤数量",
+            "indicators": ["时柱七杀", "七杀一位", "日旺"]
+          },
+          "result": {
+            "type": "子女数量",
+            "detail": "子女星数量即为子女数，需结合旺衰判断",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "children_07",
+          "name": "无子（时逢七杀）",
+          "koujue": "时逢七煞本无儿，食伤太过必夭损。",
+          "condition": {
+            "description": "时柱七杀或食伤太旺",
+            "indicators": ["时柱七杀", "食伤太过"]
+          },
+          "result": {
+            "type": "子女艰难",
+            "detail": "求子较难，或子女有损",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "children_08",
+          "name": "子女有贵（身强煞旺）",
+          "koujue": "身强煞旺禄丰隆，身弱财多主贫困。",
+          "condition": {
+            "description": "身强子女星旺",
+            "indicators": ["身强", "子女星旺"]
+          },
+          "result": {
+            "type": "子女有出息",
+            "detail": "子女有出息，能成才",
+            "confidence": "中"
+          },
+          "priority": 3
+        },
+        {
+          "id": "children_09",
+          "name": "子女缘薄（时柱空亡）",
+          "koujue": "时柱空亡子女稀，求子艰难命中定。",
+          "condition": {
+            "description": "时柱临空亡",
+            "indicators": ["时柱空亡"]
+          },
+          "result": {
+            "type": "子女缘薄",
+            "detail": "子女缘薄，或子女来得晚",
+            "confidence": "中"
+          },
+          "priority": 2
+        },
+        {
+          "id": "children_10",
+          "name": "子女多（官杀食伤多）",
+          "koujue": "官杀叠叠子女多，食伤重重儿女全。",
+          "condition": {
+            "description": "官杀或食伤数量多",
+            "indicators": ["官杀多", "食伤多"]
+          },
+          "result": {
+            "type": "子女多",
+            "detail": "命中子女较多",
+            "confidence": "中"
+          },
+          "priority": 2
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "totalRules": 28,
+    "categories": 3,
+    "lastUpdated": "2026-03-23",
+    "notes": [
+      "口诀整理自公开命理文献，仅供参考",
+      "实际推断需结合八字全局分析",
+      "部分口诀需结合大运流年验证",
+      "计划生育等社会因素会影响实际结果"
+    ]
+  }
+}

@@ -11,11 +11,11 @@ interface PaymentModalProps {
   onPaymentSuccess: () => void;
 }
 
-function PayPalCheckout({ userInfo, result, onSuccess, _onClose }: {
+function PayPalCheckout({ userInfo, result, onSuccess, onClose }: {
   userInfo: UserInfo;
   result: FortuneResult;
   onSuccess: () => void;
-  _onClose: () => void;
+  onClose: () => void;
 }) {
   const [{ isPending, isRejected, isResolved }] = usePayPalScriptReducer();
   const [error, setError] = useState<string | null>(null);

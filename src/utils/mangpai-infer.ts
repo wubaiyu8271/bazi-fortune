@@ -151,9 +151,9 @@ function inferParents(bazi: BaziData): InferResult[] {
   
   // 解析各柱
   const yearPillar = parsePillar(bazi.yearPillar);
-  const monthPillar = parsePillar(bazi.monthPillar);
-  const dayPillar = parsePillar(bazi.dayPillar);
-  const timePillar = parsePillar(bazi.timePillar);
+  const _monthPillar = parsePillar(bazi.monthPillar);
+  const _dayPillar = parsePillar(bazi.dayPillar);
+  const _timePillar = parsePillar(bazi.timePillar);
   
   // 确定父星和母星（以日干论）
   // 偏财为父，正印为母
